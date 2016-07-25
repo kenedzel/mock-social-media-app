@@ -1,0 +1,12 @@
+<%= form_for(@post = Post.new, :remote => true, :html=> {class: "form-horizontal", role: "form"}) do |f| %>
+	<% if user_signed_in? %>
+		<div class="row">
+			<div class="form-group text-area-size">		
+				<%= f.text_area :content, class: "form-control" %>
+			</div>
+			<div class="form-group post-size">
+					<%= f.submit class: 'btn btn-default btn-md btn-block' %>
+			</div>
+		</div>
+	<% end %>
+<% end %>

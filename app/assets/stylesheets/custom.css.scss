@@ -1,0 +1,43 @@
+.results-block{
+	display: inline-block;
+}
+.no-padding{
+	padding: 0 !important;
+}
+.left-padding{
+	padding-left: 15px !important;
+}
+.logout{
+	padding-left: 0;
+}
+.user-name{
+	padding-top: 15px;
+}
+.nav .navbar-right li{
+	.btn{
+		color: #fff !important;
+		margin-top: 5%
+	}
+	.btn-danger:hover{
+		background-color: darken(#d9534f, 20%) !important;
+	}
+}
+.sidebar{
+	position: absolute;
+}
+.text-area-size{
+	width: 1000px;
+	height: 50px;
+	margin: 0 auto;
+}
+.post-size{
+	padding-top: 15px;
+	width: 1000px;
+	height: 50px;
+}
+.container{
+	position: relative;
+}
+.sidebar-nav{
+	position: absolute;
+}

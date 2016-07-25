@@ -1,0 +1,6 @@
+<%= @posts.each do |post| %>
+<div class ="well well-sm">
+	<strong>Message: </strong><%= post.content %> <br> <strong>By:</strong>
+	<%= post.user.email %> <br> <small><%= time_ago_in_words(post.created_at) %> ago</small><br>
+</div>
+<% end %>
