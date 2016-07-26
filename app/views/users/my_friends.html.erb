@@ -1,0 +1,13 @@
+<% if @friendships.count > 0 %>
+
+	<%= @friendships.each do |friends| %>
+	<div class ="well well-sm">
+		<strong>Name:</strong>
+		<%= friends.email %> <br> <small>Friends since <%= time_ago_in_words(friends.created_at) %> ago</small><br>
+	</div>
+	<% end %>
+
+<% else %>
+	<p class="lead col-md-12">No friends yet.</p>
+
+<% end %>
