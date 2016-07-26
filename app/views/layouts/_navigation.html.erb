@@ -13,14 +13,18 @@
                       <li><%= link_to "My Profile", edit_user_registration_path(current_user) %></li>
                       <li><%= link_to "My Friends", my_friends_path %></li>
                       <li><%= link_to "Posts", posts_path %></li>
+                      <li><%= link_to "Search", search_friends_path %></li>
               </ul>
-                <ul class="nav navbar-right col-md-4">
+              <!-- <ul class="nav navbar-nav col-md-5 to-left">
+                <li><%= render 'friends/search' %></li>
+              </ul> -->
+              <ul class="nav navbar-right col-md-4">
                   <li class="col-md-8 user-name text-right">
                     <i class="fa fa-user"></i>
                         <%= current_user.email %>
                   </li>
                   <li class="col-md-4 logout"><%= link_to("Log out", destroy_user_session_path, class: 'btn btn-xs btn-danger', method: :delete) %></li>
-                </ul> 
+              </ul> 
             </div> 
         <% end %>
       </div>
