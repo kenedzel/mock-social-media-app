@@ -15,6 +15,11 @@ class User < ActiveRecord::Base
     .order("id")
 }
 
+def full_name
+  return "#{first_name} #{last_name}".strip if (first_name || last_name)
+  "Anonymous"
+end
+
 def not_friends_with?(friend_id)
     friendships.where(friend_id: friend_id).count < 1
 end

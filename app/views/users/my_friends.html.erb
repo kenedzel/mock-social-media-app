@@ -1,10 +1,14 @@
 <% if @friendships.count > 0 %>
 
-	<%= @friendships.each do |friends| %>
-	<div class ="well well-sm">
-		<strong>Name:</strong>
-		<%= friends.email %> <br> <small>Friends since <%= time_ago_in_words(friends.created_at) %> ago</small><br>
-	</div>
+	<% @friendships.each do |friends| %>
+		<div class="col-sm-6">
+		  <div class="card card-block">
+		    <h3 class="card-title"><%= friends.full_name %></h3>
+		    <p class="card-text">Email: <%= friends.email %></p>
+<!-- 		    <a href="#" class="btn btn-primary">Go somewhere</a> -->
+		    <small>Online <%= time_ago_in_words(friends.last_sign_in_at) %> ago</small><br>
+		  </div>
+		</div> 	 
 	<% end %>
 
 <% else %>

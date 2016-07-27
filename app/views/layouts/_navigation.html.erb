@@ -14,13 +14,20 @@
                       <li><%= link_to "My Friends", my_friends_path %></li>
                       <li><%= link_to "Posts", posts_path %></li>
                       <li><%= link_to "Search", search_friends_path %></li>
+<!--                       <li>  
+                        <form class="form-inline pull-xs-right">
+                              <input class="form-control" type="text" placeholder="Search">
+                              <button class="btn btn-success-outline" type="submit">Search</button>
+                        </form>
+                      </li> -->
               </ul>
+
               <ul class="nav navbar-right col-md-4">
                   <li class="col-md-8 user-name text-right">
                     <i class="fa fa-user"></i>
                         <%= current_user.email %>
                   </li>
-                  <li class="col-md-4 logout"><%= link_to("Log out", destroy_user_session_path, class: 'btn btn-xs btn-danger', method: :delete) %></li>
+                  <li class="col-md-4 logout"><%= link_to("Log out", destroy_user_session_path, class: 'btn btn-sm btn-danger-outline', method: :delete) %></li>
               </ul> 
             </div> 
         <% end %>
