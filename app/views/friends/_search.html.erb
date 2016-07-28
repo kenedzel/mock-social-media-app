@@ -13,11 +13,39 @@
 		</div>
 	</div>
 <% end %>
-<p class="lead">People you may know</p>
+<!-- #############SEARCH RESULTS############
+<% if @users %>
+	<% if @users.size > 0 %>
+		<div id="friend-lookup-results" class="well results-block col-md-10">
+			<table class="search-results-table col-md-12">
+				<tbody>
+					<% @users.each do |user| %>
+						<tr>
+							<td><strong>Name:</strong> <%= user.full_name %></td>
+							<td><strong>Email:</strong> <%= user.email %></td>
+							<td>	<% if current_user.not_friends_with?(user.id) %>
+									<%= link_to "Add as my friend", add_friend_path(user: current_user, friend: user), 
+																	class: 'btn btn-sm btn-success-outline', 
+																	method: :post %>
+								<% else %>
+									<span class="label label-primary">You are friends</span>
+								<% end %>
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	<% else %>
+		<p class="lead col-md-12">No people matched this search criteria</p>
+	<% end %>
+<% end %>
+
+ --><p class="lead">People you may know</p>
 <% @users.each do |user| %>
 	<% if user.id != current_user.id && (current_user.not_friends_with?(user.id)) %>
 		<div align="center">
-			<div class="col-xs-5">
+			<div class="col-xs-4">
 				<div class="card text-xs-center">
 				  <div class="card-header">
 				    Hi I'm

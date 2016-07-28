@@ -5,10 +5,10 @@ class UsersController < ApplicationController
 	end
 	
 	def search
-		@users = User.all
+		# @users = User.all
 		@users = User.except_current_user(current_user.id)#.search(params[:search_param])
 	
-		# render status: :not_found, nothing: true unless @users.present?
+		render status: :not_found, nothing: true unless @users.present?
 	end
 
 	def show

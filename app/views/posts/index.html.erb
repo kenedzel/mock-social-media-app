@@ -3,8 +3,9 @@
 			<div class ="well well-sm">
 				<strong>Message: </strong><%= post.content %> <br> —
 				<b><%= post.user.full_name %></b><br> <small><%= time_ago_in_words(post.created_at) %> ago</small><br>
-				<hr>
-<!-- 				<small>•action1</small> | <small>•action1</small> -->
+				<% if current_user.id == post.user.id %>
+						<a href="#"><small>·Edit</small></a>  <a href="#"><small>·Delete</small></a>
+				<% end %>
 			</div>
 		<% end %>
 	<% end %>
