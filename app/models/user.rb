@@ -16,6 +16,12 @@ class User < ActiveRecord::Base
     .where("id!=?", user_id)
     .order("id")
 }
+ scope :select_same_place,-> (city, country){
+  select("*")
+    .from("users")
+    .where("city=?", city)
+    .where("country=?", country)
+ }
 
 def full_name
   return "#{first_name} #{last_name}".strip if (first_name || last_name)

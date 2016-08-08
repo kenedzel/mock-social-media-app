@@ -5,15 +5,26 @@
        <div class="well well-lg sidebar-nav top-right big-well">
          <h3 align="center"><%= @user.full_name %></h3>
          <ul class="nav nav-list">
-          <li class="nav-header"><small><i class="fa fa-home"></i> Lives in <%= link_to "Makati, Philippines" %></li>
-          <li><i class="fa fa-graduation-cap"></i> Studied at <%= link_to "AA University" %></li>
+          <li class="nav-header"><small><i class="fa fa-home"></i> Lives in <%= link_to "#{@user.city},#{@user.country}" %></li>
+          <li><i class="fa fa-graduation-cap"></i> Studied <%= link_to @user.course %> at <%= link_to @user.school %></li>
           <li><i class="fa fa-heart"></i> Single</li></small>
          </ul>
        </div>
     </div>
 </div>
 <div class="col-lg-5">
-	<div class="well well-lg xl-well">
-
-	</div>
+<!-- 	<div class="well well-lg xl-well"> -->
+    <% @posts.each do |post| %>
+      <% if @user.id == post.user.id %>
+        <div class ="well well-lg">
+          <b><%= link_to post.user.full_name, user_path(post.user) %></b>
+          <div class="no-padding"><small><%= time_ago_in_words(post.created_at) %> ago</small></div><br>
+          <p><%= post.content %></p>
+          <% if current_user.id == post.user.id %>
+              <a href="#"><small>·Edit</small></a>  <a href="#"><small>·Delete</small></a>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+<!-- 	</div> -->
 </div>
