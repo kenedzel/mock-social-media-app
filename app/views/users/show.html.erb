@@ -1,15 +1,16 @@
 <div class="col-lg-5">
 	<img src="http://66.media.tumblr.com/7640c7eda1210e3c474a239c651fecc4/tumblr_nnzsvnbUzD1rlo1q2o1_1280.jpg" class="img-thumbnail fixed-img" alt="Cinque Terre" style="width:300px;height:250;">
 	<div align="center"><small><%= @user.email %></small></div>	
-     <div class="well well-lg sidebar-nav top-right big-well">
-       <h3 align="center"><%= @user.full_name %></h3>
-       <ul class="nav nav-list">
-        <li class="nav-header"><small><i class="fa fa-home"></i> Lives in <%= link_to "Makati, Philippines" %></li>
-        <li><i class="fa fa-graduation-cap"></i> Studied <%= link_to "Astrophysics" %> at <%= link_to "AA University" %></li>
-        <li><i class="fa fa-heart"></i> Single</li></small>
-
-       </ul>
-     </div>
+    <div class="container-fluid">
+       <div class="well well-lg sidebar-nav top-right big-well">
+         <h3 align="center"><%= @user.full_name %></h3>
+         <ul class="nav nav-list">
+          <li class="nav-header"><small><i class="fa fa-home"></i> Lives in <%= link_to "Makati, Philippines" %></li>
+          <li><i class="fa fa-graduation-cap"></i> Studied at <%= link_to "AA University" %></li>
+          <li><i class="fa fa-heart"></i> Single</li></small>
+         </ul>
+       </div>
+    </div>
 </div>
 <div class="col-lg-5">
 	<div class="well well-lg xl-well">
