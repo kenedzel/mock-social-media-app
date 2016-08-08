@@ -1,6 +1,6 @@
     <div class="navbar navbar-default navbar-static-top">
       <div class="container">
-        <%= link_to "Post App", root_path, class: "navbar-brand" %>
+<!--         <%= link_to "Post App", root_path, class: "navbar-brand" %> -->
         <% if current_user %>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
               <span class="icon-bar"></span>
@@ -10,18 +10,22 @@
             <div class="navbar-collapse collapse navbar-responsive-collapse">
               <ul class="nav navbar-nav col-md-6">
                       <li><%= link_to "Home", root_path  %></li>
-                      <li><%= link_to "My Profile", edit_user_registration_path(current_user) %></li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile</a>
+                        <ul class="dropdown-menu">
+                          <li><%= link_to "My Profile", user_path(current_user) %></li>
+                          <li><a href="#"><%= link_to "Edit your profile", edit_user_registration_path(current_user) %></a></li>
+                        </ul>
+                      </li>
                       <li><%= link_to "My Friends", my_friends_path %></li>
-<!--                       <li><%= link_to "Posts", posts_path %></li> -->
-                      <li><%= link_to "Search", search_friends_path %></li>
+                      <li><%= link_to "People", search_friends_path %></li>
 <!--                       <li>  
                         <form class="form-inline pull-xs-right">
                               <input class="form-control" type="text" placeholder="Search">
                               <button class="btn btn-success-outline" type="submit">Search</button>
                         </form>
                       </li> -->
-              </ul>
-
+              </ul>          
               <ul class="nav navbar-right col-md-4">
                   <li class="col-md-8 user-name text-right">
                     <i class="fa fa-user"></i>

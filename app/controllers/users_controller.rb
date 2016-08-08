@@ -11,6 +11,10 @@ class UsersController < ApplicationController
 		# render status: :not_found, nothing: true unless @users.present?
 	end
 
+	def destroy
+
+	end
+
 	def show
 		@user = User.find(params[:id])
 	end
