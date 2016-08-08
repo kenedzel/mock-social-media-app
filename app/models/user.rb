@@ -16,9 +16,10 @@ class User < ActiveRecord::Base
     .where("id!=?", user_id)
     .order("id")
 }
- scope :select_same_place,-> (city, country){
+ scope :select_same_place,-> (user_id, city, country){
   select("*")
     .from("users")
+    .where("id!=?", user_id)
     .where("city=?", city)
     .where("country=?", country)
  }
