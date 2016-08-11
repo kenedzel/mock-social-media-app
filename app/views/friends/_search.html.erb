@@ -2,7 +2,7 @@
 	<div class="form-group row no-padding text-center col-md-12">
 		<div class="col-md-10">
 			<%= text_field_tag :search_param, params[:search_param], 
-								placeholder: "//", 
+								placeholder: "", 
 								autofocus: true, 
 								class: 'form-control search-box input-sm' %>
 		</div>
@@ -42,32 +42,33 @@
 <% end %>
 
  -->
-<p class="lead">People you may know</p>
-	<% @users.each do |user| %>
-		<% if user.id != current_user.id && (current_user.not_friends_with?(user.id)) %>
-			<div align="center">
-				<div class="col-xs-4">
-					<div class="card text-xs-center">
-					  <div class="card-header">
-					    Hi I'm
-					  </div>
-					  <div class="card-block">
-					    <h4 class="card-title"><%= user.full_name %> </h4>
-					    <p class="card-text"><%= user.email %></p>
-					    <%= link_to add_friend_path(user: current_user, friend: user), 
-					    								:class => "btn btn-sm btn-success-outline btn-block", 
-					    								method: :post do %>
-					   	  <i class="fa fa-user-plus"> <strong>Add friend</strong> </i>
-					    <% end %>
-					    <%= link_to user_path(user), :class => "btn btn-sm btn-info-outline btn-block" do %>
-					      <i class="fa fa-search"> <strong>View Profile</strong></i>
-					    <% end %>
-					  </div>
-					  <div class="card-footer text-muted">
-					    Online <%= time_ago_in_words(user.last_sign_in_at) %> ago
-					  </div>
+<% if @users %>
+		<% @users.each do |user| %>
+			<% if user.id != current_user.id && (current_user.not_friends_with?(user.id)) %>
+				<div align="center">
+					<div class="col-xs-4">
+						<div class="card text-xs-center">
+						  <div class="card-header">
+						    Hi I'm
+						  </div>
+						  <div class="card-block">
+						    <h4 class="card-title"><%= user.full_name %> </h4>
+						    <p class="card-text"><%= user.email %></p>
+						    <%= link_to add_friend_path(user: current_user, friend: user), 
+						    								:class => "btn btn-sm btn-success-outline btn-block", 
+						    								method: :post do %>
+						   	  <i class="fa fa-user-plus"> <strong>Add friend</strong> </i>
+						    <% end %>
+						    <%= link_to user_path(user), :class => "btn btn-sm btn-info-outline btn-block" do %>
+						      <i class="fa fa-search"> <strong>View Profile</strong></i>
+						    <% end %>
+						  </div>
+						  <div class="card-footer text-muted">
+						    Online <%= time_ago_in_words(user.last_sign_in_at) %> ago
+						  </div>
+						</div>
 					</div>
 				</div>
-			</div>
+			<% end %>
 		<% end %>
-	<% end %>
+<% end %>
