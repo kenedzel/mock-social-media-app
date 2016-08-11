@@ -5,9 +5,20 @@
 
          <h3 align="center"><%= @user.full_name %></h3>
          <ul class="nav nav-list">
-          <li class="nav-header"><small><i class="fa fa-home"></i> Lives in <%= link_to "#{@user.city},#{@user.country}" %></li>
+          <small>
+          <li class="nav-header"><i class="fa fa-home"></i> Lives in <%= link_to "#{@user.city},#{@user.country}" %></li>
           <li><i class="fa fa-graduation-cap"></i> Studied <%= link_to @user.course %> at <%= link_to @user.school %></li>
-          <li><i class="fa fa-heart"></i> Single</li></small>
+          <li><i class="fa fa-heart"></i> Single</li>
+      <% if @user.friends.count > 0 %>    
+          <% if @user.friends.count >1 %>
+            <li><i class="fa fa-users"></i> <%= @user.friends.count %> friends </li>
+          <% else %>
+            <li><i class="fa fa-users"></i> <%= @user.friends.count %> friend </li>
+          <% end %>
+      <% end %>
+          <li><i class="fa fa-mobile"></i> <%= @user.mobile %></li>
+      <!-- new friends_path for other users' friends -->
+          </small>
          </ul>
 
     </div>
